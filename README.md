@@ -28,6 +28,7 @@ Configuration is done in bin/config.local.json, typical configuration below:
 # Dependencies
  - boxen: ^5.0.0
  - chalk: ^4.1.0
+ - moment: ^2.29.1
  - request: ^2.88.2
  - yargs: ^16.2.0
 
@@ -36,6 +37,24 @@ Configuration is done in bin/config.local.json, typical configuration below:
 npm install
 npm install -g .
 ```
+
+# Examples
+- Get current weather: ```weather```
+- Get hourly forecast: ```weather -h```
+- Get daily forecast: ```weather -d```
+- Get alerts: ```weather -a```
+- Show version: ```weather --version```
+- Show help: ```weather --help```
+
+# Arguments
+| flag  | alias  | description  |
+|---|---|---|
+|   | --version  | Show version number  |
+| -c  | --config  | Lists your configuration.  |
+| -h  | --hourly | Get hourly forecast.   | 
+| -d  | --daily  | Get daily forecast.  | 
+| -a  | --alerts  | Get alerts.  | 
+|   | --help  | Show help  | 
 
 # Credits
 This was adapted from a tutorial on hackernoon.
