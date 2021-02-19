@@ -2,8 +2,28 @@
 Command Line tool to get weather
 
 # Requirements
+ - https://openweathermap.org/ account & api key
  - Node.js version: ^v12.17.0
  - npm version: ^6.14.4
+
+# Configuration
+Configuration is done in bin/config.local.json, typical configuration below:
+
+``` json
+{
+    "position": {
+        "lat": "",
+        "long": "",
+        "urlPart": "?lat={lat}&lon={long}&appid={key}"
+    },
+    "city": "",
+    "state": "",
+    "country": "",
+    "zip": "",
+    "apiUrl": "https://api.openweathermap.org/data/2.5/onecall",
+    "apiKey": ""
+}
+```
 
 # Dependencies
  - "boxen": "^5.0.0",

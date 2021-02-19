@@ -8,6 +8,6 @@
     "state": "",
     "country": "",
     "zip": "",
-    "apiUrl": "https://api.openweathermap.org/data/2.5/weather",
+    "apiUrl": "https://api.openweathermap.org/data/2.5/onecall",
     "apiKey": ""
 }
