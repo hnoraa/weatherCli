@@ -31,8 +31,10 @@ Configuration is done in bin/config.local.json, typical configuration below:
  - "yargs": "^16.2.0"
 
 # Installation
-```npm install```
-```npm install -g .```
+``` commandline
+npm install
+npm install -g .
+```
 
 # Credits
 This was adapted from a tutorial on hackernoon.
