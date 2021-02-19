@@ -9,7 +9,7 @@ Command Line tool to get weather
 # Configuration
 Configuration is done in bin/config.local.json, typical configuration below:
 
-``` json
+``` javascript
 {
     "position": {
         "lat": "",
@@ -26,9 +26,10 @@ Configuration is done in bin/config.local.json, typical configuration below:
 ```
 
 # Dependencies
- - "boxen": "^5.0.0",
- - "chalk": "^4.1.0",
- - "yargs": "^16.2.0"
+ - boxen: ^5.0.0
+ - chalk: ^4.1.0
+ - request: ^2.88.2
+ - yargs: ^16.2.0
 
 # Installation
 ``` commandline
