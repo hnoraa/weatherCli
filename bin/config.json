@@ -1,3 +1,13 @@
 {
-    "location":""
+    "position": {
+        "lat": "",
+        "long": "",
+        "urlPart": "?lat={lat}&lon={long}&appid={key}"
+    },
+    "city": "",
+    "state": "",
+    "country": "",
+    "zip": "",
+    "apiUrl": "https://api.openweathermap.org/data/2.5/weather",
+    "apiKey": ""
 }
