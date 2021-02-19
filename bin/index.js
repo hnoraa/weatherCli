@@ -5,15 +5,12 @@ const boxen = require("boxen");
 const moment = require("moment");
 const request = require("request");
 const fs = require("fs");
-const { array } = require("yargs");
 
 // set up arguments and options
 const usage = chalk.hex("#83aaff")("\nUsage: weather ");
 const options = yargs
     .usage(usage)
-    //.option("g", {alias: "geo", describe: "Use Geolocation (i.e. Lat/Long).", type: "boolean", demandOption: false})
     .option("c", {alias: "config", describe: "Lists your configuration.", type: "boolean", demandOption: false})
-    .option("m", {alias: "minutely", describe: "Get minutely forecast.", type: "boolean", demandOption: false})
     .option("h", {alias: "hourly", describe: "Get hourly forecast.", type: "boolean", demandOption: false})
     .option("d", {alias: "daily", describe: "Get daily forecast.", type: "boolean", demandOption: false})
     .option("a", {alias: "alerts", describe: "Get alerts.", type: "boolean", demandOption: false})
@@ -27,12 +24,6 @@ if (yargs.argv.c == true || yargs.argv.config == true) {
     return;
 }
 
-// if(yargs.argv.g == true || yargs.argv.geo == true) {
-
-// } else {
-
-// }
-
 let url = config.apiUrl + config.position.urlPart;
 url = url.replace("{lat}", Math.round(config.position.lat));
 url = url.replace("{long}", Math.round(config.position.long));
@@ -45,12 +36,23 @@ request.get(url, (e, r, b) => {
         let data = JSON.parse(b);
         let display = "";
 
-        if (yargs.argv.m == true || yargs.argv.minutely == true) {
-        } else if (yargs.argv.h == true || yargs.argv.hourly == true) {
+        if (yargs.argv.h == true || yargs.argv.hourly == true) {
+            display = `Hourly Forecast starting on ${moment.unix(data.hourly[0].dt).format("dddd MM/DD/YY")}\n`;
+            for(var i = 0; i < data.hourly.length; i++) {
+                display += `\n${moment.unix(data.hourly[i].dt).format("MM/DD/YY hh:mm a")}
+    Temp: ${data.hourly[i].temp} F, Feels Like: ${data.hourly[i].feels_like} F
+Weather: `;
+                let weather = data.hourly[i].weather.map(i => `${i.main}`);
+                display += weather.join(",");
+            }
         } else if (yargs.argv.d == true || yargs.argv.daily == true) {
+
         } else if (yargs.argv.a == true || yargs.argv.alerts == true) {
+            display = "Current Alerts:\n";
+            let alerts = data.alerts.map(i => `${i.event} - From: ${moment.unix(i.start).format("dddd hh:mm a")} To: ${moment.unix(i.end).format("dddd hh:mm a")}`);
+            display += alerts.join(',\n');
         } else {
-            display = `Current Weather for ${moment.unix(data.current.dt).format("MM/DD/YY")}
+            display = `Current Weather for ${moment.unix(data.current.dt).format("dddd MM/DD/YY")}
 Temp:       ${data.current.temp} F
 Feels Like: ${data.current.feels_like} F
 Sunrise:    ${moment.unix(data.current.sunrise).format("hh:mm a")}
@@ -59,6 +61,10 @@ Weather:
             `;
             let weather = data.current.weather.map(i => `${i.main}`);
             display += weather.join(",");
+
+            display += "\nCurrent Alerts:\n";
+            let alerts = data.alerts.map(i => `${i.event} > ${moment.unix(i.start).format("dddd hh:mm a")} - ${moment.unix(i.end).format("dddd hh:mm a")}`);
+            display += alerts.join(',\n');
         }
         console.log(boxen(display, {padding: 1, borderColor: "green", dimBorder: true}));
     }
