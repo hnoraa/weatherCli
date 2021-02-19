@@ -14,7 +14,7 @@ Configuration is done in bin/config.local.json, typical configuration below:
     "position": {
         "lat": "",
         "long": "",
-        "urlPart": "?lat={lat}&lon={long}&appid={key}"
+        "urlPart": "?lat={lat}&lon={long}&appid={key}&units=imperial"
     },
     "city": "",
     "state": "",
