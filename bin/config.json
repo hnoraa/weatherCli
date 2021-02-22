@@ -1,8 +1,15 @@
 {
-    "position": {
+    "geo": {
         "lat": "",
         "long": "",
         "urlPart": "?lat={lat}&lon={long}&appid={key}&units=imperial"
+    },
+    "location": {
+        "city": "",
+        "state": "",
+        "country": "",
+        "zip": "",
+        "urlPart": ""
     },
     "theme": {
         "padding": 1,
@@ -14,10 +21,6 @@
         "errorTextColor": "#ff0000",
         "warningTextColor": "#00ffff"
     },
-    "city": "",
-    "state": "",
-    "country": "",
-    "zip": "",
     "apiUrl": "https://api.openweathermap.org/data/2.5/onecall",
     "apiKey": ""
 }

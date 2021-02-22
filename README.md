@@ -3,6 +3,7 @@ Command Line tool to get weather using [Open Weather Map](https://openweathermap
 
 # Todo
  - [X] Refactor
+ - [ ] Theming
  - [ ] Add to NPM registry
  - [X] Daily forecast
  - [ ] Configuration wizard
