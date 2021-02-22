@@ -1,7 +1,7 @@
 {
-  "name": "tempcli",
+  "name": "weathercli",
   "version": "1.0.0",
-  "description": "Gets the weather from your command line",
+  "description": "Displays the weather on your command line.",
   "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,9 +22,9 @@
   "author": "hnoraa",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/hnoraa/tempCli/issues"
+    "url": "https://github.com/hnoraa/weatherCli/issues"
   },
-  "homepage": "https://github.com/hnoraa/tempCli#readme",
+  "homepage": "https://github.com/hnoraa/weatherCli#readme",
   "dependencies": {
     "boxen": "^5.0.0",
     "chalk": "^4.1.0",
