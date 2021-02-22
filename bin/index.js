@@ -20,7 +20,7 @@ const options = yargs
 let config = JSON.parse(fs.readFileSync(__dirname + "/config.local.json", "utf8"));
 
 if (yargs.argv.c == true || yargs.argv.config == true) {
-    console.log(boxen("Latitude:  " + config.lat + "\nLongitude: " + config.long + "\nAPI Key:   " + config.apiKey, {padding: 1, borderColor: "green", dimBorder: true}));
+    console.log(boxen("Latitude:  " + config.position.lat + "\nLongitude: " + config.position.long + "\nAPI Key:   " + config.apiKey, {padding: 1, borderColor: "green", dimBorder: true}));
     return;
 }
 
