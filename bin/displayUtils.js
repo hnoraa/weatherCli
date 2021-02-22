@@ -77,7 +77,7 @@ function formatAlerts(data) {
 }
 
 function formatConfig(config) {
-    let display = `Latitude: ${config.position.lat}\nLongitude: ${config.position.long}\nAPI Key: ${config.apiKey}`;
+    let display = `Latitude: ${config.geo.lat}\nLongitude: ${config.geo.long}\nAPI Key: ${config.apiKey}`;
 
     return display;
 }
