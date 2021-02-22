@@ -17,7 +17,7 @@ const options = yargs
     .help()
     .argv;
 
-let config = JSON.parse(fs.readFileSync("./bin/config.local.json", "utf8"));
+let config = JSON.parse(fs.readFileSync(__dirname + "/config.local.json", "utf8"));
 
 if (yargs.argv.c == true || yargs.argv.config == true) {
     console.log(boxen("Latitude:  " + config.lat + "\nLongitude: " + config.long + "\nAPI Key:   " + config.apiKey, {padding: 1, borderColor: "green", dimBorder: true}));
@@ -40,7 +40,7 @@ request.get(url, (e, r, b) => {
             display = `Hourly Forecast starting on ${moment.unix(data.hourly[0].dt).format("dddd MM/DD/YY")}\n`;
             for(var i = 0; i < data.hourly.length; i++) {
                 display += `\n${moment.unix(data.hourly[i].dt).format("MM/DD/YY hh:mm a")}
-    Temp: ${data.hourly[i].temp} F, Feels Like: ${data.hourly[i].feels_like} F
+Temp: ${data.hourly[i].temp} F, Feels Like: ${data.hourly[i].feels_like} F
 Weather: `;
                 let weather = data.hourly[i].weather.map(i => `${i.main}`);
                 display += weather.join(",");
@@ -49,8 +49,13 @@ Weather: `;
 
         } else if (yargs.argv.a == true || yargs.argv.alerts == true) {
             display = "Current Alerts:\n";
-            let alerts = data.alerts.map(i => `${i.event} - From: ${moment.unix(i.start).format("dddd hh:mm a")} To: ${moment.unix(i.end).format("dddd hh:mm a")}`);
-            display += alerts.join(',\n');
+
+            if(data.alerts) {
+                let alerts = data.alerts.map(i => `${i.event} - From: ${moment.unix(i.start).format("dddd hh:mm a")} To: ${moment.unix(i.end).format("dddd hh:mm a")}`);
+                display += alerts.join(',\n');
+            } else {
+                display += "No current alerts!";
+            }
         } else {
             display = `Current Weather for ${moment.unix(data.current.dt).format("dddd MM/DD/YY")}
 Temp:       ${data.current.temp} F
@@ -63,8 +68,12 @@ Weather:
             display += weather.join(",");
 
             display += "\nCurrent Alerts:\n";
-            let alerts = data.alerts.map(i => `${i.event} > ${moment.unix(i.start).format("dddd hh:mm a")} - ${moment.unix(i.end).format("dddd hh:mm a")}`);
-            display += alerts.join(',\n');
+            if (data.alerts) {
+                let alerts = data.alerts.map(i => `${i.event} > ${moment.unix(i.start).format("dddd hh:mm a")} - ${moment.unix(i.end).format("dddd hh:mm a")}`);
+                display += alerts.join(',\n');
+            } else {
+                display += "No current alerts!";
+            }
         }
         console.log(boxen(display, {padding: 1, borderColor: "green", dimBorder: true}));
     }
