@@ -43,13 +43,13 @@ if (yargs.argv.c == true || yargs.argv.config == true) {
     return;
 }
 
-// -sg flag
+// -g flag
 if (yargs.argv.g == true || yargs.argv.setgeo == true) {
     configUtils.setGeo();
     return;
 }
 
-// -sg flag
+// -a flag
 if (yargs.argv.a == true || yargs.argv.setapi == true) {
     configUtils.setApi();
     return;

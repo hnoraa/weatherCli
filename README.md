@@ -12,6 +12,8 @@ Command Line tool to get weather using [Open Weather Map](https://openweathermap
  - [X] Change api key
  - [ ] Validate set up prompts
  - [X] Error handling
+ - [ ] Unit tests
+ - [ ] Documentation
 
 # Requirements
  - https://openweathermap.org/ account & api key
@@ -108,3 +110,4 @@ This was adapted from a tutorial on hackernoon.
 - [Yargs](http://yargs.js.org/)
 - [Open Weather Map](https://openweathermap.org/)
 - [Moment](https://momentjs.com/)
+- [prompt](https://github.com/flatiron/prompt#readme)
