@@ -2,7 +2,7 @@
 Command Line tool to get weather using [Open Weather Map](https://openweathermap.org/). 
 
 # Todo
- - [ ] Refactor
+ - [X] Refactor
  - [ ] Add to NPM registry
  - [X] Daily forecast
  - [ ] Configuration wizard
@@ -26,6 +26,14 @@ Configuration is done in bin/config.local.json, typical configuration below:
         "lat": "",
         "long": "",
         "urlPart": "?lat={lat}&lon={long}&appid={key}&units=imperial"
+    },
+    "theme": {
+        "padding": 1,
+        "borderColor": "green",
+        "dimBorder": true,
+        "textColor": "#ffffff",
+        "usageTextColor": "#83aaff",
+        "errorTextColor": "#ff0000"
     },
     "city": "",
     "state": "",
@@ -70,6 +78,29 @@ npm install -g .
 | -a  | --alerts  | Get alerts.  | 
 |   | --help  | Show help  | 
 
+# Theming
+``` javascript
+ "theme": {
+        "padding": 1,
+        "borderColor": "green",
+        "dimBorder": true,
+        "textColor": "#ffffff",
+        "usageTextColor": "#83aaff",
+        "errorTextColor": "#ff0000"
+    },
+```
+Theming can be configured in the config.local.json file. Above is the default theme.
+The boxen package uses padding, borderColor and dimBorder to define the box styling.
+
+For more information see [Boxen](https://github.com/sindresorhus/boxen#readme).
+
 # Credits
 This was adapted from a tutorial on hackernoon.
-https://hackernoon.com/how-to-build-a-command-line-utility-cli-with-nodejs-gm24315b
+[How to build a command line utility cli with nodejs by @rushankhan](https://hackernoon.com/how-to-build-a-command-line-utility-cli-with-nodejs-gm24315b), 
+[RushanKhan1](https://github.com/RushanKhan1)
+
+- [Boxen](https://github.com/sindresorhus/boxen#readme)
+- [Chalk](https://github.com/chalk/chalk#readme)
+- [Yargs](http://yargs.js.org/)
+- [Open Weather Map](https://openweathermap.org/)
+- [Moment](https://momentjs.com/)

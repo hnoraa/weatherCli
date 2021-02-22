@@ -13,8 +13,11 @@ if (!fileUtils.fileExists()) {
     return;
 }
 
+// load config
+let config = fileUtils.getConfig();
+
 // set up arguments and options
-const usage = chalk.hex("#83aaff")("\nUsage: weather ");
+const usage = chalk.hex(config.theme.usageTextColor)("\nUsage: weather <flag>[options]");
 const options = yargs
     .usage(usage)
     .option("c", {alias: "config", describe: "Lists your configuration.", type: "boolean", demandOption: false})
@@ -24,12 +27,9 @@ const options = yargs
     .help()
     .argv;
 
-// load config
-let config = fileUtils.getConfig();
-
 // -c flag
 if (yargs.argv.c == true || yargs.argv.config == true) {
-    console.log(boxen(displayUtils.formatConfig(config), {padding: config.theme.padding, borderColor: config.theme.borderColor, dimBorder: config.theme.dimBorder}));
+    console.log(boxen(chalk.hex(config.theme.textColor)(displayUtils.formatConfig(config)), {padding: config.theme.padding, borderColor: config.theme.borderColor, dimBorder: config.theme.dimBorder}));
     return;
 }
 
@@ -40,7 +40,7 @@ let url = urlUtils.createUrl(config);
 request.get(url, (e, r, b) => {
     if (e) {
         // error
-        console.error(chalk.red(e));
+        console.error(chalk.hex(config.theme.errorTextColor)(e));
     } else {
         let data = JSON.parse(b);
         let display = "";
@@ -57,6 +57,6 @@ request.get(url, (e, r, b) => {
         }
 
         // display the results
-        console.log(boxen(display, {padding: config.theme.padding, borderColor: config.theme.borderColor, dimBorder: config.theme.dimBorder}));
+        console.log(boxen(chalk.hex(config.theme.textColor)(display), {padding: config.theme.padding, borderColor: config.theme.borderColor, dimBorder: config.theme.dimBorder}));
     }
 });

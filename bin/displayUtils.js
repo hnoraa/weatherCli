@@ -29,7 +29,8 @@ Morning: ${data.daily[i].temp.morn} F
 Day: ${data.daily[i].temp.day} F
 Evening: ${data.daily[i].temp.eve} F
 Night: ${data.daily[i].temp.night} F
-Weather: `;
+Weather: 
+`;
 
         let weather = data.daily[i].weather.map(i => `${i.main}`);
         display += "    " + weather.join(",");
@@ -50,7 +51,7 @@ Weather: `;
     let weather = data.current.weather.map(i => `${i.main}`);
     display += weather.join(",");
 
-    display += "\nCurrent Alerts:\n";
+    display += "\n\nCurrent Alerts:\n";
     if (data.alerts) {
         let alerts = data.alerts.map(i => `${i.event} > ${moment.unix(i.start).format("dddd hh:mm a")} - ${moment.unix(i.end).format("dddd hh:mm a")}`);
         display += alerts.join(',\n');

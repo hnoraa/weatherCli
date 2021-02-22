@@ -4,6 +4,14 @@
         "long": "",
         "urlPart": "?lat={lat}&lon={long}&appid={key}&units=imperial"
     },
+    "theme": {
+        "padding": 1,
+        "borderColor": "green",
+        "dimBorder": true,
+        "textColor": "#ffffff",
+        "usageTextColor": "#83aaff",
+        "errorTextColor": "#ff0000"
+    },
     "city": "",
     "state": "",
     "country": "",
