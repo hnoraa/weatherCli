@@ -40,10 +40,10 @@ request.get(url, (e, r, b) => {
             display = `Hourly Forecast starting on ${moment.unix(data.hourly[0].dt).format("dddd MM/DD/YY")}\n`;
             for(var i = 0; i < data.hourly.length; i++) {
                 display += `\n${moment.unix(data.hourly[i].dt).format("MM/DD/YY hh:mm a")}
-Temp: ${data.hourly[i].temp} F, Feels Like: ${data.hourly[i].feels_like} F
-Weather: `;
+    Temp: ${data.hourly[i].temp} F, Feels Like: ${data.hourly[i].feels_like} F
+    Weather: `;
                 let weather = data.hourly[i].weather.map(i => `${i.main}`);
-                display += weather.join(",");
+                display += "    " + weather.join(",");
             }
         } else if (yargs.argv.d == true || yargs.argv.daily == true) {
 
