@@ -33,7 +33,9 @@ Configuration is done in bin/config.local.json, typical configuration below:
  - yargs: ^16.2.0
 
 # Installation
-From the source directory run:
+From the bin directory, copy config.json to config.local.json. You will need to provide your Open Weather Map API Key and the latitude/longitude of the location you want weather for.
+
+From the root directory run:
 ``` commandline
 npm install
 npm install -g .
