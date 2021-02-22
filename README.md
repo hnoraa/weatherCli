@@ -1,6 +1,14 @@
 # weatherCli
 Command Line tool to get weather
 
+# Todo
+[ ] Refactor
+[ ] Add to NPM registry
+[ ] Daily forecast
+[ ] Configuration wizard
+[ ] Install scripts
+[ ] Ability to use City,Country,State,Zip instead of lat/long
+
 # Requirements
  - https://openweathermap.org/ account & api key
  - Node.js version: ^v12.17.0
