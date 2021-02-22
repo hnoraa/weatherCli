@@ -1,6 +1,6 @@
 {
   "name": "weathercli",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Displays the weather on your command line.",
   "main": "bin/index.js",
   "scripts": {

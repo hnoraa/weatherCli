@@ -1,13 +1,16 @@
 # weatherCli
-Command Line tool to get weather
+Command Line tool to get weather using [Open Weather Map](https://openweathermap.org/). 
 
 # Todo
  - [ ] Refactor
  - [ ] Add to NPM registry
- - [ ] Daily forecast
+ - [X] Daily forecast
  - [ ] Configuration wizard
  - [ ] Install scripts
+ - [ ] Setup script
+ - [ ] Detect first time use
  - [ ] Ability to use City,Country,State,Zip instead of lat/long
+ - [X] Error handling
 
 # Requirements
  - https://openweathermap.org/ account & api key
