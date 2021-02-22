@@ -6,6 +6,7 @@ const request = require("request");
 const fileUtils = require("./fileUtils.js");
 const urlUtils = require("./urlUtils.js");
 const displayUtils = require("./displayUtils.js");
+const configUtils = require("./configUtils.js");
 
 // check that the config file exists
 if (!fileUtils.fileExists()) {
@@ -21,6 +22,8 @@ const usage = chalk.hex(config.theme.usageTextColor)("\nUsage: weather <flag>[op
 const options = yargs
     .usage(usage)
     .option("c", { alias: "config", describe: "Lists your configuration.", type: "boolean", demandOption: false })
+    .option("g", { alias: "setgeo", describe: "Set up your lat/long.", type: "boolean", demandOption: false })
+    .option("a", { alias: "setapi", describe: "Set up your api.", type: "boolean", demandOption: false })
     .option("h", { alias: "hourly", describe: "Get hourly forecast.", type: "boolean", demandOption: false })
     .option("d", { alias: "daily", describe: "Get daily forecast.", type: "boolean", demandOption: false })
     .option("a", { alias: "alerts", describe: "Get alerts.", type: "boolean", demandOption: false })
@@ -37,6 +40,18 @@ if (yargs.argv.c == true || yargs.argv.config == true) {
                 dimBorder: config.theme.dimBorder,
                 backgroundColor: config.theme.backgroundColor
             }));
+    return;
+}
+
+// -sg flag
+if (yargs.argv.g == true || yargs.argv.setgeo == true) {
+    configUtils.setGeo();
+    return;
+}
+
+// -sg flag
+if (yargs.argv.a == true || yargs.argv.setapi == true) {
+    configUtils.setApi();
     return;
 }
 

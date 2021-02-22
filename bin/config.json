@@ -2,14 +2,7 @@
     "geo": {
         "lat": "",
         "long": "",
-        "urlPart": "?lat={lat}&lon={long}&appid={key}&units=imperial"
-    },
-    "location": {
-        "city": "",
-        "state": "",
-        "country": "",
-        "zip": "",
-        "urlPart": ""
+        "urlPart": "?lat={lat}&lon={long}&appid={key}&units=imperial&exclude=minutely"
     },
     "theme": {
         "padding": 1,
