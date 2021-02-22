@@ -33,6 +33,7 @@ Configuration is done in bin/config.local.json, typical configuration below:
  - yargs: ^16.2.0
 
 # Installation
+From the source directory run:
 ``` commandline
 npm install
 npm install -g .
