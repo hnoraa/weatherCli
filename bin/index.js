@@ -20,16 +20,23 @@ let config = fileUtils.getConfig();
 const usage = chalk.hex(config.theme.usageTextColor)("\nUsage: weather <flag>[options]");
 const options = yargs
     .usage(usage)
-    .option("c", {alias: "config", describe: "Lists your configuration.", type: "boolean", demandOption: false})
-    .option("h", {alias: "hourly", describe: "Get hourly forecast.", type: "boolean", demandOption: false})
-    .option("d", {alias: "daily", describe: "Get daily forecast.", type: "boolean", demandOption: false})
-    .option("a", {alias: "alerts", describe: "Get alerts.", type: "boolean", demandOption: false})
+    .option("c", { alias: "config", describe: "Lists your configuration.", type: "boolean", demandOption: false })
+    .option("h", { alias: "hourly", describe: "Get hourly forecast.", type: "boolean", demandOption: false })
+    .option("d", { alias: "daily", describe: "Get daily forecast.", type: "boolean", demandOption: false })
+    .option("a", { alias: "alerts", describe: "Get alerts.", type: "boolean", demandOption: false })
     .help()
     .argv;
 
 // -c flag
 if (yargs.argv.c == true || yargs.argv.config == true) {
-    console.log(boxen(chalk.hex(config.theme.textColor)(displayUtils.formatConfig(config)), {padding: config.theme.padding, borderColor: config.theme.borderColor, dimBorder: config.theme.dimBorder}));
+    console.log(
+        boxen(chalk.hex(config.theme.textColor)(displayUtils.formatConfig(config)),
+            {
+                padding: config.theme.padding,
+                borderColor: config.theme.borderColor,
+                dimBorder: config.theme.dimBorder,
+                backgroundColor: config.theme.backgroundColor
+            }));
     return;
 }
 
@@ -57,6 +64,13 @@ request.get(url, (e, r, b) => {
         }
 
         // display the results
-        console.log(boxen(chalk.hex(config.theme.textColor)(display), {padding: config.theme.padding, borderColor: config.theme.borderColor, dimBorder: config.theme.dimBorder}));
+        console.log(
+            boxen(chalk.hex(config.theme.textColor)(display),
+                {
+                    padding: config.theme.padding,
+                    borderColor: config.theme.borderColor,
+                    dimBorder: config.theme.dimBorder,
+                    backgroundColor: config.theme.backgroundColor
+                }));
     }
 });

@@ -31,9 +31,11 @@ Configuration is done in bin/config.local.json, typical configuration below:
         "padding": 1,
         "borderColor": "green",
         "dimBorder": true,
+        "backgroundColor": "#000000",
         "textColor": "#ffffff",
         "usageTextColor": "#83aaff",
-        "errorTextColor": "#ff0000"
+        "errorTextColor": "#ff0000",
+        "warningTextColor": "#00ffff"
     },
     "city": "",
     "state": "",
@@ -84,9 +86,11 @@ npm install -g .
         "padding": 1,
         "borderColor": "green",
         "dimBorder": true,
+        "backgroundColor": "#000000",
         "textColor": "#ffffff",
         "usageTextColor": "#83aaff",
-        "errorTextColor": "#ff0000"
+        "errorTextColor": "#ff0000",
+        "warningTextColor": "#00ffff"
     },
 ```
 Theming can be configured in the config.local.json file. Above is the default theme.
